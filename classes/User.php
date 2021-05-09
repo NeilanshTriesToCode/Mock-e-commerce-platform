@@ -1,0 +1,67 @@
+<?php
+    
+
+    // php class to support user functions such as login and signup
+    class User {
+        // fields
+        public $id;
+        public $firstName;
+        public $lastName;
+        public $email;
+        public $password;
+        public $pdo;  // object received on connecting to database 
+
+        // constructor
+       /* function __construct($firstName, $lastName, $email, $password, $pdo){
+            $this->firstName = $firstName;
+            $this->lastName = $lastName;
+            $this->email = $email;
+            $this->password = $password;
+            $this->pdo = $pdo;
+        } */
+
+        // function to login
+        public function createUser($firstName, $lastName, $email, $password, $pdo){
+             // check if user already exists
+             $user = new User();
+             if( $user->userExists($email, $pdo) ){
+                return -1;    // if user exists
+            }
+            // user doesn't exist
+            // SQL query to create new user
+            $password_hash = md5($password);
+            $sql = "INSERT INTO Users(firstName, lastName, email, pw_hash) VALUES(?, ?, ?, ?)";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $firstName);
+            $statement->bindParam(2, $lastName);
+            $statement->bindParam(3, $email);
+            $statement->bindParam(4, $password_hash);
+            $statement->execute();
+
+            if($statement->rowCount() < 1){
+                return 0;   // in case SQL crashes
+            }
+
+            return 1; // account successfully created
+        }
+
+        // function to check if a user exists
+        public function userExists($email, $pdo){
+            $sql = "SELECT * FROM Users WHERE email = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $email);
+            $statement->execute();
+
+            // check if a user exists
+            if($statement->rowCount() > 0){
+                return true;   // user exists
+            }
+
+            return false;  /// user doesn't exist
+        }
+    }
+
+
+
+
+?>
