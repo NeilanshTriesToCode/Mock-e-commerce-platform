@@ -77,9 +77,21 @@
 
             return false;  /// user doesn't exist
         }
+
+        // function to retrieve user info
+        public function getAdminInfo($email, $pdo){
+            $sql = "SELECT * FROM users WHERE email = ?";  // will return one row
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $email);
+            $statement->execute();
+
+            // retrieve user details
+            $row = $pre_q->fetch(PDO::FETCH_ASSOC);
+            $this->firstName = $row['firstName'];            
+            $this->lastName = $row['lastName'];
+            $this->email = $row['email'];
+
+            return true;
+        }
     }
-
-
-
-
 ?>
