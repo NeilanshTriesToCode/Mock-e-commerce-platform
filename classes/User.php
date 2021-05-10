@@ -45,6 +45,24 @@
             return 1; // account successfully created
         }
 
+        // function to login
+        public function loginUser($email, $password, $pdo){
+            // SQL statement to check if user exists with given email/password combination
+            $password_hash = md5($password);
+            $sql = "SELECT * FROM Users WHERE email = :email AND pw_hash = :password_hash";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':email', $email);
+            $statement->bindValue(':password_hash', $password_hash);
+            $statement->execute();
+
+              // check if a user exists
+              if($statement->rowCount() > 0){
+                return 1;   // user exists
+            }
+
+            return 0;  // incorrect user fields
+        }
+
         // function to check if a user exists
         public function userExists($email, $pdo){
             $sql = "SELECT * FROM Users WHERE email = ?";
