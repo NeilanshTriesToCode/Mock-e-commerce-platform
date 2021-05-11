@@ -33,6 +33,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add product</title>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var form = document.getElementById('add_product');
+            form.onsubmit = function(e){
+                checkFields(event);
+                //alert('hi');
+            }
+        }
+
+        // function to check fields
+        function checkFields(event){
+            var p_name = document.getElementById('p_name');
+            var p_description = document.getElementById('p_description');
+            var category = document.getElementById('category');  
+            var price = document.getElementById('price');    
+            var stock = document.getElementById('stock');  
+            var img_1 = document.getElementById('img_1');        
+            var img_2 = document.getElementById('img_2');        
+          
+            // creating an array of required fields to check field validity
+            var required_fields = [p_name, p_description, category, price, stock, img_1, img_2];
+            for(var i = 0; i < required_fields.length; i++){
+                if(required_fields[i].value.length == 0){  // if a field is empty
+                    alert('One or more fields are empty');
+                    event.preventDefault();               
+                }        
+            }
+            
+            // checking if the images are in the right format
+            var valid_formats = ['jpg', 'jpeg', 'png', 'tiff', 'gif'];
+            var images = [img_1.value]
+        }
+    </script>
 </head>
 <body>
     <form id="add_product" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="text-align: center";>
