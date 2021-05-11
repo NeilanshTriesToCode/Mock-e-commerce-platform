@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var form = document.getElementById('login_form');
+            form.onsubmit = function(e){
+                checkFields(event);
+                //alert('hi');
+            }
+        }
+
+        // function to check fields
+        function checkFields(event){
+            var username = document.getElementById('username');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');        
+            // creating an array of required fields to check field validity
+            var required_fields = [username, email, password];
+            for(var i = 0; i < required_fields.length; i++){
+                if(required_fields[i].value.length == 0){  // if a field is empty
+                    alert('One or more fields are empty');
+                    event.preventDefault();               
+                }        
+            }          
+        }
+    </script>
+</head>
+<body>
+    <form id="login_form" action="loginAdmin.php" method="POST" style="text-align: center";>
+        <h1>Admin Login</h1>
+
+        <div>
+            <input type="text" id="username" name="username" placeholder="username"><br>
+        </div>
+
+        <div>
+            <input type="email" id="email" name="email" placeholder="email"><br>
+        </div>
+
+        <div>
+            <input type="password" id="password" name="password" placeholder="password"><br>
+        </div>
+
+        <div style="text-align: center;">
+            <input class="buttons" type="submit" value="Login">
+        </div>
+
+    </form>     
+</body>
+</html>

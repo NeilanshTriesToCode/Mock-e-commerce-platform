@@ -9,7 +9,7 @@
          public $pdo;  // object received on connecting to database 
 
          // function to create admin
-         public function createAdmin($username, $email, $password){
+         public function createAdmin($username, $email, $password, $pdo){
               // check if admin already exists
               $admin = new Admin();
               if( $admin->adminExists($username, $email, $pdo) ){
@@ -21,8 +21,8 @@
              $sql = "INSERT INTO admins(username, email, pw_hash) VALUES(?, ?, ?)";
              $statement = $pdo->prepare($sql);
              $statement->bindParam(1, $username);
-             $statement->bindParam(3, $email);
-             $statement->bindParam(4, $password_hash);
+             $statement->bindParam(2, $email);
+             $statement->bindParam(3, $password_hash);
              $statement->execute();
  
              if($statement->rowCount() < 1){
