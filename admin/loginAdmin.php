@@ -1,7 +1,7 @@
 <?php
     // include necessary files
     include "../classes/Database.php";  // user-defined class to connect to database
-    include "../classes/Admin.php";     // user-defined class to support user functions
+    include "../classes/Admin.php";     // user-defined class to support admin functions
 
     // php file to create user
 

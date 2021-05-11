@@ -8,7 +8,7 @@
         echo "<h1>Hello, admin</h1>";
         echo "<h3> username: ".$_SESSION['username']."</h3>";
         echo "<ul>
-                <li>Add Products</li>
+                <li> <a href=\"addProduct.php\">Add Products</a> </li>
                 <li>View Products</li>
                 <li>Update Product</li>
                 <li>Delete Product</li>

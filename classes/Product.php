@@ -58,6 +58,8 @@
 
             // retrieve all products
             $row = $pre_q->fetch(PDO::FETCH_ASSOC);
+            // code further
+            
 
         }
 
