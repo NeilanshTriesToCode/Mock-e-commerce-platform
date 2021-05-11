@@ -32,7 +32,7 @@
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
         $_SESSION['userType'] = 1;  // 1 indicates admin, 2 indicates user/customer
-        //header('Location: ./userHome.php');      // redirect user to user homepage (to be implemented)
+        header('Location: ./adminHome.php');      // redirect admin to admin homepage 
         echo "Logged in successfully";
     }
     else if($flag == 0){

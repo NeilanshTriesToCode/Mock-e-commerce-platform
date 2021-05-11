@@ -30,7 +30,7 @@
         session_start();   // starting session 
         $_SESSION['email'] = $email;
         $_SESSION['userType'] = 2;  // 2 indicates user, 1 indicates admin
-        header('Location: ./userHome.php');      // redirect user to user homepage (to be implemented)
+        header('Location: ./userHome.php');      // redirect user to user homepage 
         echo "Logged in successfully";
     }
     else if($flag == 0){
