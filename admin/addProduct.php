@@ -3,7 +3,7 @@
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
         echo "<h2>Error 404: Could not find the page you're loooking for</h2>";
     }  
-    else{
+    else if(!empty($_POST) && ($_SESSION['userType'] == 1)){
         // include necessary files
         include "../classes/Database.php";  // user-defined class to connect to database
         include "../classes/Product.php";     // user-defined class to manipulate products table
@@ -47,7 +47,9 @@
             else{
                 echo "<script> alert('Product addded successfully.') </script>";
             }
+            
         }
+        header('Location: ./adminHome.php');   // redirect to admin home
            
     }
 
@@ -105,7 +107,7 @@
     </script>
 </head>
 <body>
-    <form id="add_product" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" style="text-align: center";>
+    <form id="add_product" action="addProduct.php" method="POST" enctype="multipart/form-data" style="text-align: center";>
             <h1>Add product</h1>
 
             <div style="margin: 10px">
@@ -129,11 +131,11 @@
             </div>
 
             <div style="margin: 10px">
-                <input type="file" id="img_1" name="img_1" placeholder="IMG 1"><br>
+                <input type="file" id="img_1" name="img_1" placeholder="Product IMG 1"><br>
             </div>
 
             <div style="margin: 10px">
-                <input type="file" id="img_2" name="img_2" placeholder="IMG 2"><br>
+                <input type="file" id="img_2" name="img_2" placeholder="Product IMG 2"><br>
             </div>
 
             <div style="text-align: center;">

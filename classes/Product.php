@@ -13,10 +13,10 @@
 
         // function to add product to the database
         public function addProduct($p_name, $p_description, $category, $price, $stock, $img1, $img2, $pdo){
-            // check if admin already exists
+            // check if product already exists
             $product = new Product();
-            if( $product->productExists($id, $p_name, $pdo) ){
-               return -1;    // if admin exists
+            if( $product->productExists($p_name, $pdo) ){
+               return -1;    // if product exists
             }
 
             // SQL statement to insert into products table
@@ -37,23 +37,28 @@
         public function getProduct($id, $p_name, $pdo){
 
             $sql = "SELECT * FROM products WHERE id = ? AND p_name LIKE ?";
-            $statement = $pdo->execute($sql);
+            $statement = $pdo->prepare($sql);
             $statement->bindParam(1, $id);
             $statement->bindParam(2, $p_name);
             $statement->execute();
 
             // retrieve product info
-            $row = $pre_q->fetch(PDO::FETCH_ASSOC);
-            $this->id = $row['id'];
-            $this->p_name = $row['p_name'];
-            $this->p_description = $row['p_description'];
-            $this->category = $row['category'];
-            $this->price = $row['price'];
-            $this->stock = $row['stock'];
-            $this->img_1 = $row['img_1'];
-            $this->img_2 = $row['img_2'];
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-            return true;
+            if($statement->rowCount() > 0){   // product found
+                $this->id = $row['id'];
+                $this->p_name = $row['p_name'];
+                $this->p_description = $row['p_description'];
+                $this->category = $row['category'];
+                $this->price = $row['price'];
+                $this->stock = $row['stock'];
+                $this->img_1 = $row['img_1'];
+                $this->img_2 = $row['img_2'];
+    
+                return true;
+            }
+
+            return false;   // product not found         
         }
 
         // function to display all products
@@ -71,11 +76,10 @@
         }
 
         // function to check if a product exists
-        public function productExists($id, $p_name, $pdo){
-            $sql = "SELECT * FROM products WHERE id = ? AND p_name LIKE ?";
+        public function productExists($p_name, $pdo){
+            $sql = "SELECT * FROM products WHERE p_name LIKE ?";
             $statement = $pdo->prepare($sql);
-            $statement->bindParam(1, $id);
-            $statement->bindParam(2, $p_name);
+            $statement->bindParam(1, $p_name);
             $statement->execute();
 
             // check if a product exists
