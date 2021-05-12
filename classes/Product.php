@@ -17,13 +17,20 @@
             $product = new Product();
             if( $product->productExists($id, $p_name, $pdo) ){
                return -1;    // if admin exists
-           }
+            }
+
             // SQL statement to insert into products table
             $sql = "INSERT INTO products(p_name, p_description, category, price, stock, img_1, img_2) 
                     VALUES(?, ?, ?, ?, ?, ?, ?)";
             $statement = $pdo->prepare($sql);
             $product_info = array($p_name, $p_description, $category, $price, $stock, $img1, $img2);
             $statement->execute($product_info);
+
+            if($statement->rowCount() < 1){
+                return 0;   // in case SQL crashes
+            }
+
+            return 1; // product added successfully
         }
 
         // function to display a product with given id and name
