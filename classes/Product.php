@@ -91,7 +91,7 @@
         }
 
         // function to check if product with given id exists
-        public function productWithIdExists($id){
+        public function productWithIdExists($id, $pdo){
              // check if product with given id exists
              $sql = "SELECT * FROM products WHERE id = ?";
              $statement = $pdo->prepare($sql);
@@ -109,7 +109,7 @@
         public function updateProductPrice($id, $price, $pdo){
             // check if product with given id exists
             $product = new Product();
-            if(!$product->productWithIdExists($id)){
+            if(!$product->productWithIdExists($id, $pdo)){
               return -1;   // product doesn't exist
             }
 
@@ -148,7 +148,7 @@
 
             // check if product with given id exists
             $product = new Product();
-            if(!$product->productWithIdExists($id)){
+            if(!$product->productWithIdExists($id, $pdo)){
                 return -1;   // product doesn't exist
             }
 
@@ -159,7 +159,7 @@
             $statement->execute();
 
             // validate if the product is deleted
-            if(!$product->productWithIdExists($id)){
+            if(!$product->productWithIdExists($id, $pdo)){
                 return 1;   // delete successful
             }
         }
