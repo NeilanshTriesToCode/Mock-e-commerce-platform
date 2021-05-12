@@ -90,6 +90,81 @@
             return false;  // product doesn't exist
         }
 
+        // function to check if product with given id exists
+        public function productWithIdExists($id){
+             // check if product with given id exists
+             $sql = "SELECT * FROM products WHERE id = ?";
+             $statement = $pdo->prepare($sql);
+             $statement->bindParam(1, $id);
+             $statement->execute();
+ 
+             if($statement->rowCount < 1){
+                 return false;   // product doesn't exist
+             }
+
+             return true;
+        }
+
+        // function to update product price with given id
+        public function updateProductPrice($id, $price, $pdo){
+            // check if product with given id exists
+            $product = new Product();
+            if(!$product->productWithIdExists($id)){
+              return -1;   // product doesn't exist
+            }
+
+            // update product price     
+            $sql = "UPDATE products
+                    SET price = ?
+                    WHERE id = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $price);  
+            $statement->bindParam(2, $id);  
+            
+            return 1;   // product updated
+        }
+
+        // function to update product stock with given id
+        public function updateProductStock($id, $stock, $pdo){
+            // check if product with given id exists
+            $product = new Product();
+            if(!$product->productWithIdExists($id)){
+              return -1;   // product doesn't exist
+            }
+
+            // update product price stock    
+            $sql = "UPDATE products
+                    SET stock = ?
+                    WHERE id =?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $stock);  
+            $statement->bindParam(1, $id);  
+            
+            return 1;   // product updated
+        }
+
+        // function to delete a product with given id
+        public function deleteProduct($id, $pdo){
+
+            // check if product with given id exists
+            $product = new Product();
+            if(!$product->productWithIdExists($id)){
+                return -1;   // product doesn't exist
+            }
+
+            // if a product exists
+            $sql = "DELETE FROM products WHERE id = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $id);
+            $statement->execute();
+
+            // validate if the product is deleted
+            if(!$product->productWithIdExists($id)){
+                return 1;   // delete successful
+            }
+        }
+
+
 
     }
 
