@@ -16,11 +16,11 @@
 - To login, use **adminlogin.html**.
 - **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
 - Admin accounts created: 
-  - username: admin123
+    username: admin123
     email: admin@mail.com
     password: 567
 
-  - username: leomessi
+    username: leomessi
     email: leo@mail.com
     password: messi123
 
@@ -31,17 +31,17 @@
 - To login, use **login.html**.
 - **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
 - User accounts created:
-  - firstname: Lebron
+    firstname: Lebron
     lastname: James
     email: kingjames@123.com
     password: 123
 
-  - firstname: dwayne
+    firstname: dwayne
     lastname: wade
     email: wade@123.com
     password: 345
 
-  - firstname: tony
+    firstname: tony
     lastname: montana
     email: montana@mail.com
     password: tony123
