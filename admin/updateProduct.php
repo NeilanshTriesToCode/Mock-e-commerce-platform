@@ -2,9 +2,9 @@
     // php file to update product
     session_start();
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
-        echo "<h2>Error 404: Could not find the page you're loooking for</h2>";
+        header('Location: adminHome.php');    // direct to adminHome which prints error message
     } 
-    else{
+    else if(!empty($_POST) && ($_SESSION['userType'] == 1)){
         // include necessary files
         include "../classes/Database.php";  // user-defined class to connect to database
         include "../classes/Product.php";     // user-defined class to manipulate products table
@@ -51,6 +51,8 @@
             }
         }   
         else{
+            $price = $_POST['price'];
+            $stock = $_POST['stock'];
             $flag_1 = $product->updateProductPrice($p_id, $price, $pdo);
             $flag_2 = $product->updateProductStock($p_id, $stock, $pdo);
 
@@ -61,8 +63,8 @@
                 echo "<script> alert('product not found'); </script>";
             }
         }
-        sleep(7);
-        header("Location: ./adminHome.php");  
+        //sleep(7);
+        //header("Location: ./adminHome.php");  
     }
 
 ?>
@@ -122,7 +124,10 @@
             <div style="text-align: center;">
                 <input class="buttons" type="submit" value="Update product">
             </div>
+    </form>  
 
-        </form>     
+    <div style="text-align: center; font-size: 20px">
+        <p> <a href="./adminHome.php">Back to home</a> </p>
+    </div>   
 </body>
 </html>

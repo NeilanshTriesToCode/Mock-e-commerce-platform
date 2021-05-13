@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
-        echo "<h2>Error 404: Could not find the page you're loooking for</h2>";
+        header('Location: adminHome.php');  // redirect to adminHome which prints error message
     }  
     else if(!empty($_POST) && ($_SESSION['userType'] == 1)){
         // include necessary files
@@ -49,8 +49,6 @@
             }
             
         }
-        sleep(7);  // delay execution by 7 seconds, so that the alert above shows
-        header('Location: ./adminHome.php');   // redirect to admin home
            
     }
 
@@ -143,6 +141,10 @@
                 <input class="buttons" type="submit" value="Add product">
             </div>
 
-        </form>     
+    </form>    
+    
+    <div style="text-align: center; font-size: 20px">
+        <p> <a href="./adminHome.php">Back to home</a> </p>
+    </div>  
 </body>
 </html>

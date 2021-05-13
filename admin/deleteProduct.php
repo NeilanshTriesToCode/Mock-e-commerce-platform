@@ -2,9 +2,9 @@
     // php file to delete product
     session_start();
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
-        echo "<h2>Error 404: Could not find the page you're loooking for</h2>";
+        header('Location: adminHome.php');  // redirect to adminHome which prints error message
     } 
-    else{
+    else if(!empty($_POST) && ($_SESSION['userType'] == 1)){
         // include necessary files
         include "../classes/Database.php";  // user-defined class to connect to database
         include "../classes/Product.php";     // user-defined class to manipulate products table
@@ -24,15 +24,16 @@
 
         $product = new Product();
         if($product->getProductWithId($p_id, $pdo)){ // display deleted product details
-            $product->deleteProduct($id, $pdo);
-            echo "<script> alert('Product with id ".$p_id." deleted'); </script>";
+            if($product->deleteProduct($p_id, $pdo) == 1){
+                echo "<script> alert('Product with id ".$p_id." deleted'); </script>";
+            }
         }  
         else{
             echo "<script> alert('Product not found'); </script>";
         }
            
-        sleep(7);
-        header("Location: ./adminHome.php");  // redirect admin to homepage
+        //sleep(7);
+        //header("Location: ./adminHome.php");  // redirect admin to homepage
     }
 
 ?>
@@ -76,6 +77,10 @@
                 <input class="buttons" type="submit" value="Delete product">
             </div>
 
-        </form>     
+    </form>  
+
+    <div style="text-align: center; font-size: 20px">
+        <p> <a href="./adminHome.php">Back to home</a> </p>
+    </div>    
 </body>
 </html>

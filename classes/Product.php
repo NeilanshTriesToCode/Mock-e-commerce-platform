@@ -125,7 +125,7 @@
              $statement->bindParam(1, $id);
              $statement->execute();
  
-             if($statement->rowCount < 1){
+             if($statement->rowCount() < 1){
                  return false;   // product doesn't exist
              }
 
@@ -142,11 +142,9 @@
 
             // update product price     
             $sql = "UPDATE products
-                    SET price = ?
-                    WHERE id = ?";
-            $statement = $pdo->prepare($sql);
-            $statement->bindParam(1, $price);  
-            $statement->bindParam(2, $id);  
+                    SET price = '$price'
+                    WHERE id = '$id'";
+            $count = $pdo->exec($sql);
             
             return 1;   // product updated
         }
@@ -155,17 +153,15 @@
         public function updateProductStock($id, $stock, $pdo){
             // check if product with given id exists
             $product = new Product();
-            if(!$product->productWithIdExists($id)){
+            if(!$product->productWithIdExists($id, $pdo)){
               return -1;   // product doesn't exist
             }
 
-            // update product price stock    
+            // update product stock    
             $sql = "UPDATE products
-                    SET stock = ?
-                    WHERE id =?";
-            $statement = $pdo->prepare($sql);
-            $statement->bindParam(1, $stock);  
-            $statement->bindParam(1, $id);  
+                    SET stock = '$stock'
+                    WHERE id = '$id'";
+            $count = $pdo->exec($sql);
             
             return 1;   // product updated
         }

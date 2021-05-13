@@ -2,7 +2,7 @@
     // homepage for admin
     session_start();
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
-        echo "<h2>Error 404: Could not find the page you're loooking for</h2>";
+        echo "<h2>Error 404: Could not find the page you're looking for</h2>";
     }   
     else{
         echo "<h1>Hello, admin</h1>";
@@ -14,7 +14,7 @@
                 <li style=\"margin: 10px;\"> <a href=\"deleteProduct.php\">Delete Product</a> </li>
               </ul>";
         echo "<p style=\"margin: 10px; font-size: 20px\"> <a href=\"viewOrders.php\">View Orders</a> </p>";
-        echo "<p style=\"margin: 10px; font-size: 20px\"> <a href=\"\">Log out </a> </p>";
+        echo "<p style=\"margin: 10px; font-size: 20px\"> <a href=\"adminLogout.php\">Log out </a> </p>";
     }
 
 
