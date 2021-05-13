@@ -15,7 +15,7 @@
 - To sign-up, use **adminsignup.html**.
 - To login, use **adminlogin.html**.
 - **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
-- Admin accounts created: 
+- Admin accounts created: <br/> 
     username: admin123 <br/>
     email: admin@mail.com <br/>
     password: 567 
@@ -30,7 +30,7 @@
 - To sign-up, use **signup.html**.
 - To login, use **login.html**.
 - **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
-- User accounts created:
+- User accounts created: <br/>
     firstname: Lebron <br/>
     lastname: James <br/>
     email: kingjames@123.com <br/>
