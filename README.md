@@ -70,11 +70,3 @@ MySQL database was used. The database file **interview_buzztro.sql** could be fo
 ## Issues:
 - The product images don't load after retrieval from the database. **base64** encrypting was used for the same as images were stored in **BLOB** format. 
 - Session management in some files may be faulty.
-
-
-
-
-
-
-
-
