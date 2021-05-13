@@ -1,2 +1,54 @@
 # Neilansh Rajpal - Technical Interview for Buzztro
-- This repository contains a mini project done as part of the Technical Interview at Buzztro.com
+- This repository contains a mini-project done as part of the Technical Interview for Buzztro.com.
+- The project exemplifies an e-commerce platform with user and admin panels as per the guidelines.
+- Using minimal styling, it mainly focuses on backend development, done using PHP and MySQL for database.
+- the XAMPP stack was employed for the same. 
+
+## Main Components
+***Two panels used:***
+### User panel
+- Associated files found under the **user** directory of the repository.
+- Supports basic functions such as sign-up, login, view and order products, and view their orders.
+- To sign-up, use **signup.html**.
+- To login, use **login.html**.
+- **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
+
+### Admin panel
+- Associated files found under the **admin** directory of the repository.
+- Supports basic admin functions such as:
+  - Sign-in and login.
+  - Add, view, update, and delete product.
+  - View all customer orders.
+- To sign-up, use **adminsignup.html**.
+- To login, use **adminlogin.html**.
+- **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
+
+## Classes
+*These user-fined classes were implemented:*
+- **Database**: PHP class to connect to the database.
+- **Admin**: PHP class to support admin functions.
+- **User**: PHP class to support user functions.
+- **Product**: PHP class to support product functions.
+- **Order**: PHP class to support order functions.
+
+## Tables
+- **admin** table containing admin info.
+- **user** table containing user info.
+- **products** table containing product info.
+- **order** table containing order info.
+*All the tables contain some entries, which was done through the backend scripts.***
+
+## Miscellaneous:
+- **products_image** directory to store images of product after their uploaded to be added to the database.
+
+## Issues:
+- The product images don't load after retrieval from the database. **base64** encrypting was used for the same as images were stored in **BLOB** format. 
+- Session management in some files may be faulty.
+
+
+
+
+
+
+
+
