@@ -15,6 +15,14 @@
 - To sign-up, use **adminsignup.html**.
 - To login, use **adminlogin.html**.
 - **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
+- Admin accounts created: 
+  - username: admin123
+    email: admin@mail.com
+    password: 567
+
+  - username: leomessi
+    email: leo@mail.com
+    password: messi123
 
 ### User panel
 - Associated files found under the **user** directory of the repository.
@@ -22,6 +30,21 @@
 - To sign-up, use **signup.html**.
 - To login, use **login.html**.
 - **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
+- User accounts created:
+  - firstname: Lebron
+    lastname: James
+    email: kingjames@123.com
+    password: 123
+
+  - firstname: dwayne
+    lastname: wade
+    email: wade@123.com
+    password: 345
+
+  - firstname: tony
+    lastname: montana
+    email: montana@mail.com
+    password: tony123
 
 ## Classes
 *These user-fined classes were implemented:*
