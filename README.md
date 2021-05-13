@@ -6,13 +6,6 @@
 
 ## Main Components
 ***Two panels used:***
-### User panel
-- Associated files found under the **user** directory of the repository.
-- Supports basic functions such as sign-up, login, view and order products, and view their orders.
-- To sign-up, use **signup.html**.
-- To login, use **login.html**.
-- **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
-
 ### Admin panel
 - Associated files found under the **admin** directory of the repository.
 - Supports basic admin functions such as:
@@ -23,6 +16,13 @@
 - To login, use **adminlogin.html**.
 - **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
 
+### User panel
+- Associated files found under the **user** directory of the repository.
+- Supports basic functions such as sign-up, login, view and order products, and view their orders.
+- To sign-up, use **signup.html**.
+- To login, use **login.html**.
+- **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
+
 ## Classes
 *These user-fined classes were implemented:*
 - **Database**: PHP class to connect to the database.
@@ -31,12 +31,15 @@
 - **Product**: PHP class to support product functions.
 - **Order**: PHP class to support order functions.
 
+## Database
+MySQL database was used. The database file **interview_buzztro.sql** could be found in the repository, and should be uploaded to the **phpmyadmin** database.
+
 ## Tables
+*All the tables contain some entries, which was done through the backend scripts.***
 - **admin** table containing admin info.
 - **user** table containing user info.
 - **products** table containing product info.
 - **order** table containing order info.
-*All the tables contain some entries, which was done through the backend scripts.***
 
 ## Miscellaneous:
 - **products_image** directory to store images of product after their uploaded to be added to the database.
