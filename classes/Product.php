@@ -61,6 +61,33 @@
             return false;   // product not found         
         }
 
+        // function to display product with given id
+        public function getProductWithId($id, $pdo){
+
+            $sql = "SELECT * FROM products WHERE id = ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $id);
+            $statement->execute();
+
+            // retrieve product info
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if($statement->rowCount() > 0){   // product found
+                $this->id = $row['id'];
+                $this->p_name = $row['p_name'];
+                $this->p_description = $row['p_description'];
+                $this->category = $row['category'];
+                $this->price = $row['price'];
+                $this->stock = $row['stock'];
+                $this->img_1 = $row['img_1'];
+                $this->img_2 = $row['img_2'];
+    
+                return true;
+            }
+
+            return false;   // product not found 
+        }
+
         // function to display all products
         public function getAllProducts(){
             $allProducts = [[]];

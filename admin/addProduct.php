@@ -49,6 +49,7 @@
             }
             
         }
+        sleep(7);  // delay execution by 7 seconds, so that the alert above shows
         header('Location: ./adminHome.php');   // redirect to admin home
            
     }
