@@ -5,7 +5,7 @@
 - the XAMPP stack was employed for the same. 
 
 ## Main Components
-***Two panels used:***
+### ***Two panels used:***
 ### Admin panel
 - Associated files found under the **admin** directory of the repository.
 - Supports basic admin functions such as:
