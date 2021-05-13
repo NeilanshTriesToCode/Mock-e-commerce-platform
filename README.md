@@ -15,6 +15,14 @@
 - To sign-up, use **adminsignup.html**.
 - To login, use **adminlogin.html**.
 - **adminHome.php** is the admin homepage and contains links to other php pages supporting different admin functions.
+- ***Admin accounts created:*** <br/> 
+    username: admin123 <br/>
+    email: admin@mail.com <br/>
+    password: 567 
+
+    username: leomessi <br/>
+    email: leo@mail.com <br/>
+    password: messi123 
 
 ### User panel
 - Associated files found under the **user** directory of the repository.
@@ -22,6 +30,21 @@
 - To sign-up, use **signup.html**.
 - To login, use **login.html**.
 - **userHome.php** is the homepage and contains links to other php pages supporting different user functions.
+- ***User accounts created:*** <br/>
+    firstname: Lebron <br/>
+    lastname: James <br/>
+    email: kingjames@123.com <br/>
+    password: 123
+
+    firstname: dwayne <br/>
+    lastname: wade <br/>
+    email: wade@123.com <br/>
+    password: 345 
+
+    firstname: tony <br/>
+    lastname: montana <br/>
+    email: montana@mail.com <br/>
+    password: tony123
 
 ## Classes
 *These user-fined classes were implemented:*
@@ -47,11 +70,3 @@ MySQL database was used. The database file **interview_buzztro.sql** could be fo
 ## Issues:
 - The product images don't load after retrieval from the database. **base64** encrypting was used for the same as images were stored in **BLOB** format. 
 - Session management in some files may be faulty.
-
-
-
-
-
-
-
-
