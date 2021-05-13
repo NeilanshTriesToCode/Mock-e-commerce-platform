@@ -6,10 +6,6 @@
     else{   // free resources
         echo "<h2> Logged out successfully </h2>";
         session_destroy();
-        echo "<h3> <a href=\"loginAdmin.php\">Back to login page</a> <h3>";
+        echo "<h3> <a href=\"adminLogin.html\">Back to login page</a> <h3>";
     }
-
-
-
-
 ?>

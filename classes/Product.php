@@ -89,16 +89,16 @@
         }
 
         // function to display all products
-        public function getAllProducts(){
+        public function getAllProducts($pdo){
             $allProducts = [[]];
             $sql = "SELECT * FROM products";
-            $statement = $pdo->execute($sql);
+            $statement = $pdo->prepare($sql);
             $statement->execute();
 
             // retrieve all products
-            $row = $pre_q->fetch(PDO::FETCH_ASSOC);
+            //$row = $statement->fetch(PDO::FETCH_ASSOC);
             // code further
-            
+            return $statement;
 
         }
 
