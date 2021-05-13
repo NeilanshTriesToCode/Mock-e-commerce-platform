@@ -42,7 +42,7 @@ MySQL database was used. The database file **interview_buzztro.sql** could be fo
 - **order** table containing order info.
 
 ## Miscellaneous:
-- **products_image** directory to store images of product after their uploaded to be added to the database.
+- **product_images** directory to store images of product after their uploaded to be added to the database.
 
 ## Issues:
 - The product images don't load after retrieval from the database. **base64** encrypting was used for the same as images were stored in **BLOB** format. 
