@@ -50,8 +50,8 @@
                     <p id='category'>Category: ".$row['category']."</p>
                     <p id='price'>Price: $".$row['price'].".00</p> 
                     <p id='images'> 
-                        <img src = \"data:image/jpg;base64,'".base64_encode($row['img_1'])."'\" width = \"150px\" height = \"150px\"/> 
-                        <img src = \"data:image/jpg;base64,'".base64_encode($row['img_2'])."'\" width = \"150px\" height = \"150px\"/>
+                    <td> <img src = '../product_images/".$row['img_1']."'\" width = \"250px\" height = \"250px\"/> </td>
+                    <td> <img src = '../product_images/".$row['img_2']."'\" width = \"250px\" height = \"250px\"/> </td>
                     </p>
                     <p>
                         <a href=\"orderProduct.php?p_id=".$row['id']."\">Order</a> 

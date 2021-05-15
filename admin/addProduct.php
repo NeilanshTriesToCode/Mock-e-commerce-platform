@@ -14,10 +14,8 @@
         $category = $_POST['category'];
         $price = $_POST['price'];
         $stock = $_POST['stock'];
-        $img_1 = $_FILES['img_1']['tmp_name'];
-        $img_1_content = addslashes(file_get_contents($img_1));  // to be stored as img_1 in the table
-        $img_2 = $_FILES['img_2']['tmp_name'];
-        $img_2_content = addslashes(file_get_contents($img_2));  // to be stored as img_2 in the table
+        $img_1 = $_FILES['img_1']['name'];   // name of file
+        $img_2 = $_FILES['img_2']['name'];   // name of file
 
         $save_to_dir = "../product_images/";   // directory to store product images
         $upload_img_1 = $save_to_dir.basename($_FILES['img_1']['name']);  // address of img_1 stored to be stored in new directory
@@ -36,7 +34,7 @@
         $product = new Product();
         if(move_uploaded_file($_FILES['img_1']['tmp_name'], $upload_img_1) && move_uploaded_file($_FILES['img_2']['tmp_name'], $upload_img_2) ){
 
-            $flag = $product->addProduct($p_name, $p_description, $category, $price, $stock, $img_1_content, $img_2_content, $pdo);
+            $flag = $product->addProduct($p_name, $p_description, $category, $price, $stock, $img_1, $img_2, $pdo);
 
             if($flag == -1){
                echo "<script> alert('product already exists.') </script>";

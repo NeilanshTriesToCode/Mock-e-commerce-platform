@@ -57,8 +57,8 @@
                             <td>".$product->category."</td>
                             <td>$".$product->price."</td>
                             <td>".$product->stock."</td>
-                            <td> <img src = \"data:image/jpg;base64,'".base64_encode($product->img_1)."'\" width = \"50px\" height = \"50px\"/> </td>
-                            <td> <img src = \"data:image/jpg;base64,'".base64_encode($product->img_1)."'\" width = \"50px\" height = \"50px\"/> </td>
+                            <td> <img src = '../product_images/".$product->img_1."'\" width = \"200px\" height = \"200px\"/> </td>
+                            <td> <img src = '../product_images/".$product->img_2."'\" width = \"200px\" height = \"200px\"/> </td>
                             </tr>
                     
                  </table>"; 
