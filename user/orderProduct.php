@@ -1,6 +1,7 @@
 <?php
     // directed when user successfully logs in
     session_start();   // starting session
+    include('../header.php');
     if(!isset($_SESSION['email']) || !isset($_SESSION['userType'])){
          echo "Log In to see this page";
          echo "<h3> <a href = \"login.html\">Take me there</a> </h3>";

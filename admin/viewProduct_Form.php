@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+    include('../header.php');
     if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
         echo "<h2>Error 404: Could not find the page you're looking for</h2>";
     }

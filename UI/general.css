@@ -1,0 +1,27 @@
+/* general styles for UI */
+
+html {
+    background-color: rgb(233, 227, 215);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px
+}
+
+div { 
+    margin: 10px
+}
+
+p {
+    font-size: 20px;
+    padding: 2px
+}
+
+a {
+    color: rgb(49, 170, 218);
+    font-size: 20px;
+    font-style: italic;
+}
+
+a:visited {
+    color: rgb(140, 58, 216);
+}
+

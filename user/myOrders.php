@@ -1,6 +1,7 @@
 <?php
     // directed when user successfully logs in
     session_start();   // starting session
+    include('../header.php');
     if(!isset($_SESSION['email']) || !isset($_SESSION['userType'])){
         echo "Log In to see this page";
         echo "<h3> <a href = \"login.html\">Take me there</a> </h3>";
@@ -40,13 +41,6 @@
             }
             else{          
                 echo "<style>
-                    div { 
-                        margin: 10px
-                    }
-                    p {
-                        font-size: 20px;
-                        padding: 2px
-                    }
                     #name {
                         font-style: italic
                         padding: 2px
@@ -57,7 +51,7 @@
                 echo "<div id='orders'>";
 
                 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-                    echo "<div id='container'>
+                    echo "<div class='container'>
                             <p id=\"name\" style=\"font-size: 25px; font-weight:bold\">".$row['product_name']."</p>
                             <p id='price'>Price: $".$row['price'].".00</p> 
                             <p id='date' style=\"font-style:italic\">Ordered on: ".$row['order_date']."</p> 

@@ -1,6 +1,7 @@
 <?php
     // directed when user successfully logs in
     session_start();   // starting session
+    include('../header.php');
     if(!isset($_SESSION['email']) || !isset($_SESSION['userType'])){
         echo "Page not found";
     }

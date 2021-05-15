@@ -1,6 +1,7 @@
 <?php
   // php file to display products
   session_start();
+  include('../header.php');
   if(!isset($_SESSION['userType']) || ($_SESSION['userType'] == 2)){  // if a user/guest tries to access this page
       header('Location: adminHome.php');  // redirect to adminHome which prints error message
   }
@@ -30,17 +31,6 @@
         echo "<script> alert('you have no orders'); </script>";
     }
     else{
-        echo "<style>
-                table { 
-                border: 1pt solid black; 
-                border-collapse: collapse;
-                border-spacing: 10pt
-                }
-                td {
-                    border: 1pt solid black; 
-                    padding: 20px
-                }
-              </style>";
         echo "<table>
             <thead>
                 <tr>
@@ -54,7 +44,7 @@
             </thead>";    
         while($row = $statement->fetch(PDO::FETCH_ASSOC)){
             echo "<tr>
-                    <td>".$row['order_id']."</td>
+                    <td>".$row['id']."</td>
                     <td>".$row['product_id']."</td>
                     <td>".$row['cust_id']."</td>
                     <td>".$row['product_name']."</td>

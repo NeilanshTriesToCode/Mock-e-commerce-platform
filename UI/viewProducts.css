@@ -1,0 +1,43 @@
+/* styles for browsing products (for user) */
+
+/* div container containing product info */
+.products_container {
+    display: flex;
+}
+
+/* product items like name, description, category, and price */
+.items {
+    float: left;
+}
+
+#name {
+    font-size: 25px; 
+    font-weight: bold;
+}
+
+#desc {
+    font-style: italic;
+}
+
+/* div container containing images */
+.images_container {
+    margin-left: auto;
+}
+
+.product_images {
+    width:250px;
+    height:250px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.order_button {
+    background-color: rgb(228, 151, 36);
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border: 1px solid rgb(160, 163, 165);
+    border-radius: 20px;
+    margin: 10px;
+}
