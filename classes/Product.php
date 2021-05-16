@@ -91,7 +91,7 @@
         // function to search products by name
         public function searchByName($p_name, $pdo){
             $sql = "SELECT * FROM products WHERE p_name LIKE ? ";
-            $p_name = "$p_name%";
+            $p_name = "%$p_name%";
             $statement = $pdo->prepare($sql);
             $statement->bindParam(1, $p_name);
             $statement->execute();
