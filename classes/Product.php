@@ -88,6 +88,36 @@
             return false;   // product not found 
         }
 
+        // function to search products by name
+        public function searchByName($p_name, $pdo){
+            $sql = "SELECT * FROM products WHERE p_name LIKE ? ";
+            $p_name = "$p_name%";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $p_name);
+            $statement->execute();
+
+            if($statement->rowCount() > 0){   // product found    
+                return $statement;
+            }
+
+            return false;   // product not found 
+        }
+
+          // function to search products by category
+          public function searchByCategory($category, $pdo){
+            $sql = "SELECT * FROM products WHERE category LIKE ? ";
+            $category = "%$category%";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $category);
+            $statement->execute();
+
+            if($statement->rowCount() > 0){   // product found
+                return $statement;
+            }
+
+            return false;   // product not found 
+        }
+
         // function to display all products
         public function getAllProducts($pdo){
             $allProducts = [[]];
@@ -97,7 +127,6 @@
 
             // retrieve all products
             //$row = $statement->fetch(PDO::FETCH_ASSOC);
-            // code further
             return $statement;
 
         }

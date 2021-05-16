@@ -15,7 +15,7 @@
 }
 
 .options {
-    background-color: cornflowerblue;
+    background-color: rgb(83, 171, 223);
     color: white;
     font-size: 20px;
     height: 40px;
@@ -26,10 +26,6 @@
     margin: 10px;
 }
 
-.option_links {  
-    text-decoration: none;
-}
-
-.option_links:visited {
-    color: white;
+.options:hover {
+    background-color: rgb(15, 119, 179);
 }
