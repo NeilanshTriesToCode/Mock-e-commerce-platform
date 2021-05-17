@@ -107,6 +107,10 @@
     </script>
 </head>
 <body>
+    <div style="font-size: 20px">
+        <button onclick='document.location="adminHome.php"'>Back</button>
+    </div> 
+      
     <form id="update_product" action="updateProduct.php" method="POST" enctype="multipart/form-data" style="text-align: center";>
             <h1>Update product</h1>
 
@@ -126,9 +130,5 @@
                 <input class="buttons" type="submit" value="Update product">
             </div>
     </form>  
-
-    <div style="text-align: center; font-size: 20px">
-        <p> <a href="./adminHome.php">Back to home</a> </p>
-    </div>   
 </body>
 </html>

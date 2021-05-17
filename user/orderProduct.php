@@ -46,6 +46,8 @@
             $cust_id = $user->id;
             $flag = $order->createOrder($product_id, $cust_id, $product_name, $price, $pdo);  // create order
 
+            echo "<button onclick='document.location=\"userHome.php\"'>Back</button>";
+
             if($flag == 1){
                 echo "<script> alert('Order created'); </script>";
             }
@@ -56,6 +58,5 @@
         else{
             echo "<script> alert('An unknown error occurred'); </script>";
         }
-        echo "<h3> <a href=\"viewProducts.php\">Back to Products</a> </h3>";
     }
 ?>

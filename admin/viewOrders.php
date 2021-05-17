@@ -25,7 +25,7 @@
     $order = new Order();
     $statement = $order->getAllOrders($pdo);    // get all orders
 
-    echo "<p style=\"font-size:25px;\"> <a href=\"./adminHome.php\">Back to home</a> </p>";
+    echo "<button onclick='document.location=\"adminHome.php\"'>Back</button>";
 
     if($statement == -1){
         echo "<script> alert('you have no orders'); </script>";

@@ -29,7 +29,7 @@
 </head>
 <body>
     <div style="margin: 10px">
-        <button class='order_button' onclick="document.location='userHome.php'">Back</button>
+        <button onclick="document.location='userHome.php'">Back</button>
     </div>
     <form id='search_product' action='viewProducts.php?filterBy=name' method="POST" enctype="multipart/form-data" style="text-align: center">
 

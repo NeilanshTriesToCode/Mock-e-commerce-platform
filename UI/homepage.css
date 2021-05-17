@@ -1,6 +1,7 @@
 /* styles for admin and user homepages */
 
 /* h3 heading to greet user/admin */
+
 #greeting {
     font-style: italic;
     margin: 15px;

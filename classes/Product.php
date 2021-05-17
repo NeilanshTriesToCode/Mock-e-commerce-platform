@@ -88,6 +88,20 @@
             return false;   // product not found 
         }
 
+         // function to search products by id
+         public function searchById($id, $pdo){
+            $sql = "SELECT * FROM products WHERE id LIKE ? ";
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(1, $id);
+            $statement->execute();
+
+            if($statement->rowCount() > 0){   // product found
+                return $statement;
+            }
+
+            return false;   // product not found 
+        }
+
         // function to search products by name
         public function searchByName($p_name, $pdo){
             $sql = "SELECT * FROM products WHERE p_name LIKE ? ";
