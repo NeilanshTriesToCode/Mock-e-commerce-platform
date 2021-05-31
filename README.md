@@ -1,5 +1,4 @@
-# Neilansh Rajpal - Technical Interview for Buzztro
-- This repository contains a mini-project done as part of the Technical Interview for Buzztro.com.
+# Mock e-commerce Platform
 - The project exemplifies an e-commerce platform with user and admin panels as per the guidelines.
 - Using minimal styling, it mainly focuses on backend development, done using PHP and MySQL for database.
 - the XAMPP stack was employed for the same. 
